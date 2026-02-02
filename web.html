@@ -20,47 +20,58 @@
     </head>
     <body class="cosmic">
     <h1 id="title" style="color: aliceblue;">Rock Paper Scissors</h1>
-    <p style="color: aliceblue;">The turns start with Team a and run consecutivly</p>
-    <h1 id="a" style="color: aliceblue;">Team A:</h1>
-    <h1 id="b" style="color: aliceblue;">Team B:</h1>
-    <h1 id="lead" style="color: aliceblue;"></h1>
+    <h2 id="round" style="color:aliceblue;">Round 1</h1>
+    <h3 id="a" style="color: aliceblue;">Team A:</h1>
+    <h3 id="b" style="color: aliceblue;">Team B:</h1>
+    <h2 id="turns" style="color: aliceblue;">Team A turn</h1>
     <div class="btn-group p-5" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary" id="r1"> ROCK<img></button>
+    <button type="button" class="btn btn-secondary" id="r1"> ROCK</button>
     <button type="button" class="btn btn-secondary" id="p1">PAPER</button>
     <button type="button" class="btn btn-secondary" id="s1">SCISSORS</button>
     </div>
-    <p style="color: aliceblue;">Mode:play against a bot(1 player required)</p>
+    <h2 id="lead" style="color: aliceblue;">Both are tied up!</h1>
+    <!-- <p style="color: aliceblue;">Mode:play against a bot(1 player required)</p>
     <h1 style="color: aliceblue;">Start playing:</h1>
-    <h1 id="bot" style="color: aliceblue;">Bot:</h1>
-    <h1 id="player" style="color: aliceblue;">Player</h1>
+    <h1 id="bot" style="color: aliceblue;">Bot:</h1> -->
+    <!-- <h1 id="player" style="color: aliceblue;">Player</h1> -->
     <script>
       let arr=[];
       let i=0;
       let j=0;
+      let k=1;
+      let turns=document.querySelector("#turns");
       function fun(){
       if(arr.length>=2 && arr.length%2===0){
         if(arr[0]==='r1' && arr[1]==='s1'){
           i++;
+          k++;
         }else if(arr[0]===arr[1]){
          i;
          j;
+         k++;
         }else if(arr[0]==='s1' && arr[1]==='p1'){
           i++;
+          k++;
         }else if(arr[0]==='p1' && arr[1]==='r1'){
           i++;
+          k++;
         }else{
           j++;
+          k++;
         }
         let a1=document.querySelector("#a");
         let a2=document.querySelector("#b");
         let lead=document.querySelector("#lead");
+        let Round=document.querySelector("#round");
+        Round.textContent='Round '+k;
         if(i>j) lead.textContent='Team A is in lead';
-        else lead .textContent='Team B is lead';
+        else lead .textContent='Team B is in lead';
         a1.textContent='Team A:'+i;
         a2.textContent='Team B:'+j;
         console.log(i,j);
+        turns.textContent='Team A turn';
        arr = [];
-      }
+      }if (arr.length===1) turns.textContent='Team B turn';
     }
       let r1=document.querySelector("#r1");
       r1.addEventListener("click", () => {
