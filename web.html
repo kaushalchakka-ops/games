@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Games</title>
+     <style>
+     body{
+       padding-top: 25px;
+       padding-left: 100px;
+       padding-right: 100px;
+       padding-bottom: 50px;
+       background-color: #020617;
+     }
+     .cosmic{
+      background:radial-gradient(circle at center,#dcdcdc 0%,#020617 100%);
+     }
+     </style>
+    <link href="C:\Users\chakk\Downloads\bootstrap-5.3.8-dist\bootstrap-5.3.8-dist\css\bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="cosmic">
+    <h1 id="title" style="color: aliceblue;">Rock Paper Scissors</h1>
+    <p style="color: aliceblue;">The turns start with Team a and run consecutivly</p>
+    <h1 id="a" style="color: aliceblue;">Team A:</h1>
+    <h1 id="b" style="color: aliceblue;">Team B:</h1>
+    <h1 id="lead" style="color: aliceblue;"></h1>
+    <div class="btn-group p-5" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary" id="r1"> ROCK<img></button>
+    <button type="button" class="btn btn-secondary" id="p1">PAPER</button>
+    <button type="button" class="btn btn-secondary" id="s1">SCISSORS</button>
+    </div>
+    <p style="color: aliceblue;">Mode:play against a bot(1 player required)</p>
+    <h1 style="color: aliceblue;">Start playing:</h1>
+    <h1 id="bot" style="color: aliceblue;">Bot:</h1>
+    <h1 id="player" style="color: aliceblue;">Player</h1>
+    <script>
+      let arr=[];
+      let i=0;
+      let j=0;
+      function fun(){
+      if(arr.length>=2 && arr.length%2===0){
+        if(arr[0]==='r1' && arr[1]==='s1'){
+          i++;
+        }else if(arr[0]===arr[1]){
+         i;
+         j;
+        }else if(arr[0]==='s1' && arr[1]==='p1'){
+          i++;
+        }else if(arr[0]==='p1' && arr[1]==='r1'){
+          i++;
+        }else{
+          j++;
+        }
+        let a1=document.querySelector("#a");
+        let a2=document.querySelector("#b");
+        let lead=document.querySelector("#lead");
+        if(i>j) lead.textContent='Team A is in lead';
+        else lead .textContent='Team B is lead';
+        a1.textContent='Team A:'+i;
+        a2.textContent='Team B:'+j;
+        console.log(i,j);
+       arr = [];
+      }
+    }
+      let r1=document.querySelector("#r1");
+      r1.addEventListener("click", () => {
+        arr.push('r1');
+        fun();
+      })
+      let p1=document.querySelector("#p1");
+      p1.addEventListener("click", () => {
+        arr.push('p1');
+        fun();
+      })
+      let s1=document.querySelector("#s1");
+      s1.addEventListener('click', () => {
+        arr.push('s1');
+        fun();
+      })      
+    </script>
+  </body>
+
+</html> 
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="C:\Users\chakk\Downloads\bootstrap-5.3.8-dist\bootstrap-5.3.8-dist\css\bootstrap.min.css" rel="stylesheet">
+        <style>
+      .tictac{
+        background-color: blueviolet;
+        border: 2px solid black;
+        height: 260px;
+        width: 260px;
+      }
+      .btn{
+        width :80px;
+        height: 80px;
+        border-radius: 5px;
+        align-items: center;
+        justify-content:space-evenly;
+        
+      }
+      .btn:hover{
+        background-color: blue;
+      }
+      .container{
+        margin-left: 600px;
+        margin-top: 200px;
+        align-items: center;
+        justify-content: center;
+      }
+      
+    </style>
+    </head>
+  <body>
+    <h1 style="justify-content: center;">Tic Tac Toe</h1>
+    <p id="ad"></p>
+    <p id="ae"></p>
+    <div class="container">
+      <div class="tictac">
+        <button type="button" class="btn" id = "b1"></button>
+        <button type="button" class="btn" id = "b2"> </button>
+        <button type="button" class="btn" id = "b3"> </button>
+        <button type="button" class="btn" id = "b4"> </button>
+        <button type="button" class="btn" id = "b5"> </button>
+        <button type="button" class="btn" id = "b6"> </button>
+        <button type="button" class="btn" id = "b7"> </button>
+        <button type="button" class="btn" id = "b8"> </button>
+        <button type="button" class="btn" id = "b9"> </button>
+      </div>
+    </div>
+ 
+    <script>
+      let x=[];
+      let o=[];
+        let mat = [
+    ['b1','b2','b3'],
+    ['b4','b5','b6'],
+    ['b7','b8','b9'],
+    ['b1','b4','b7'],
+    ['b2','b5','b8'],
+    ['b3','b6','b9'],
+    ['b1','b5','b9'],
+    ['b3','b5','b7']
+    ];
+    let a = 'X';
+      function fun(){
+    for(let i=0;i<=7;i++){
+        if(x.includes(mat[i][0])&&x.includes(mat[i][1])&&x.includes(mat[i][2])){
+          let a2=document.querySelector("#ad");
+          a2.textContent='a wins';
+        }if(o.includes(mat[i][0])&&o.includes(mat[i][1])&&o.includes(mat[i][2])){
+          let a3=document.querySelector("#ae");
+          a3.textContent='B wins';
+        }
+    }
+  }
+    let a1 = document.querySelectorAll(".btn");
+    a1.forEach((tictac) =>{
+    tictac.addEventListener("click",()=> {
+        if(a==='X'){
+          let ab= tictac.getAttribute("id");
+          a='O'
+          x.push(ab);
+          let af=document.getElementById(ab);
+          af.textContent='x';
+          fun();
+        }else{
+          let ac= tictac.getAttribute("id");
+          a='X'
+          o.push(ac);
+          let af=document.getElementById(ac);
+          af.textContent='o';
+          fun();
+        }
+    })
+  })
+
+    </script>
+  </body>
+
+</html>
