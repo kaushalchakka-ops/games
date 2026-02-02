@@ -10,7 +10,6 @@
        padding-left: 100px;
        padding-right: 100px;
        padding-bottom: 50px;
-       background-color: #020617;
      }
      .cosmic{
       background:radial-gradient(circle at center,#dcdcdc 0%,#020617 100%);
@@ -19,18 +18,20 @@
     <link href="C:\Users\chakk\Downloads\bootstrap-5.3.8-dist\bootstrap-5.3.8-dist\css\bootstrap.min.css" rel="stylesheet">
     </head>
     <body class="cosmic">
+    <button><a href="singleplayer.html">Bot game</a></button>
     <h1 id="title" style="color: aliceblue;">Rock Paper Scissors</h1>
-    <p style="color: aliceblue;">The one who gets the 10 points wins</p>
+    <p style="color: aliceblue;">The one who gets the 10 points wins (Required two players to play)</p>
     <h2 id="round" style="color:aliceblue;">Round 1</h1>
     <h3 id="a" style="color: aliceblue;">Team A: Team B:</h1>
     <h2 id="turns" style="color: aliceblue;">Team A turn</h1>
     <div class="btn-group p-5" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary" id="r1"> ROCK</button>
-    <button type="button" class="btn btn-secondary" id="p1">PAPER</button>
-    <button type="button" class="btn btn-secondary" id="s1">SCISSORS</button>
+    <button title="Rock" type="button" class="btn btn-secondary" id="r1"> ROCK</button>
+    <button title="Paper" type="button" class="btn btn-secondary" id="p1">PAPER</button>
+    <button title="Scissors" type="button" class="btn btn-secondary" id="s1">SCISSORS</button>
     </div>
     <h2 id="lead" style="color: aliceblue;">Both are tied up!</h1>
-    <button style="background-color: blue;color: white;visibility: hidden;border: 0px;padding-left: 100px;" id="btn1" onclick="location.reload()">Retry</button>
+    <p style="color:aliceblue;" id="winner"></p>
+    <button style="background-color: #6C757D;color: white;visibility: hidden;border: 0px;border-radius: 5px;" id="btn1" onclick="location.reload()">Retry</button>
     <!-- <p style="color: aliceblue;">Mode:play against a bot(1 player required)</p>
     <h1 style="color: aliceblue;">Start playing:</h1>
     <h1 id="bot" style="color: aliceblue;">Bot:</h1> -->
@@ -61,12 +62,18 @@
           k++;
         }
         let btn1=document.getElementById("btn1");
-        if((i||j)>=5) btn1.style.visibility="visible";
+        let winner=document.getElementById("winner");
+        if((i>=10)||(j>=10)){
+          btn1.style.visibility="visible";
+          if(i>j) winner.textContent='Team A has won!Team B do you want a rematch?';
+          else winner.textContent='Team B has won!Team A do you want a rematch?';
+        }
         let a1=document.querySelector("#a");
         let lead=document.querySelector("#lead");
         let Round=document.querySelector("#round");
         Round.textContent='Round '+k;
         if(i>j) lead.textContent='Team A is in lead';
+        else if(i===j)lead.textContent= 'Both are tied up!';
         else lead .textContent='Team B is in lead';
         a1.textContent='Team A: '+i+' Team B: '+j;
         console.log(i,j);
