@@ -14,18 +14,67 @@
         .cosmic{
             background:radial-gradient(circle at center,#FF9966 0%,#FF5E62 100%);
         }
+        button{
+            background-color: #AA5E62;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            height: 35px;
+            width: 100px;
+        }
+        button:hover{
+            border-color: #F5F5F5;
+        }
     </style>
 </head>
 <body class="cosmic">
     <h1 style="color: #F5F5F5;">Rock Paper Scissors</h1>
     <p style="color: #F5F5F5;">The one who gets 10 points wins(One player required)</p>
-    <h2 style="color: #F5F5F5;">Round 1</h2>
-    <h3  style="color: #F5F5F5;">Team A: Team Bot:</h3>
+    <h2 id="round" style="color: #F5F5F5;">Round 1</h2>
+    <h3 id="scores" style="color: #F5F5F5;">Team A: Team Bot:</h3>
     <h2 style="color: #F5F5F5;">Team A turn</h2>
     <div class="btns">
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissors</button>
+        <button id="r">Rock</button>
+        <button id="p">Paper</button>
+        <button id="s">Scissors</button>
     </div>
+    <h2 style="color: #F5F5F5;">Both are tied up!</h2>
+    <button style="color: #F5F5F5;visibility: hidden;border-radius: 5px;">Restart</button>
+    <script>
+        let i=0,j=0,k=1;
+        let arr=[];
+        let round=document.querySelector("#round");
+        round.textContent('Round '+k)
+        function fun(){
+            if(arr.length>=2&&arr.length%2===0){
+                if(arr[0]==='r'&&arr[1]==='s'){
+                    i++;k++;
+                }else if(arr[0]==='s'&&arr[1]==='p'){
+                    i++;k++;
+                }else if(arr[0]==='p'&&arr[1]==='r'){
+                    i++;k++;
+                }else if(arr[0]===arr[1]){
+                    i+=0.5;k++;
+                }else{
+                    j++;k++;
+                }
+            }
+        }
+
+        let r=document.querySelector("#r");
+        r.addEventListener("click",()=>{
+            arr.push("r");
+            fun();
+        })
+        let p=document.querySelector("#p");
+        p.addEventListener("click",()=>{
+            arr.push("p");
+            fun();
+        })
+        let s=document.querySelector("#s");
+        s.addEventListener("click",()=>{
+            arr.push("s");
+            fun();
+        })
+    </script>
 </body>
 </html>
