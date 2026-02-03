@@ -20,6 +20,7 @@
             border-radius: 5px;
             height: 35px;
             width: 100px;
+            color: #F5F5F5;
         }
         button:hover{
             border-color: #F5F5F5;
@@ -31,50 +32,81 @@
     <p style="color: #F5F5F5;">The one who gets 10 points wins(One player required)</p>
     <h2 id="round" style="color: #F5F5F5;">Round 1</h2>
     <h3 id="scores" style="color: #F5F5F5;">Team A: Team Bot:</h3>
-    <h2 style="color: #F5F5F5;">Team A turn</h2>
-    <div class="btns">
-        <button id="r">Rock</button>
-        <button id="p">Paper</button>
-        <button id="s">Scissors</button>
+    <h2 id="turns" style="color: #F5F5F5;">Team A turn</h2>
+    <h3 id="botchoice" style="color: #F5F5F5;"></h3>
+<div class="btn-group p-5" role="group" aria-label="Basic example">
+    <button title="Rocks" type="button" id="r1"> ROCK</button>
+    <button title="Paper" type="button" id="p1">PAPER</button>
+    <button title="Scissors" type="button"  id="s1">SCISSORS</button>
     </div>
-    <h2 style="color: #F5F5F5;">Both are tied up!</h2>
+    <h2 id="lead" style="color: #F5F5F5;">Both are tied up!</h1>
     <button style="color: #F5F5F5;visibility: hidden;border-radius: 5px;">Restart</button>
-    <script>
-        let i=0,j=0,k=1;
-        let arr=[];
-        let round=document.querySelector("#round");
-        round.textContent('Round '+k)
-        function fun(){
-            if(arr.length>=2&&arr.length%2===0){
-                if(arr[0]==='r'&&arr[1]==='s'){
-                    i++;k++;
-                }else if(arr[0]==='s'&&arr[1]==='p'){
-                    i++;k++;
-                }else if(arr[0]==='p'&&arr[1]==='r'){
-                    i++;k++;
-                }else if(arr[0]===arr[1]){
-                    i+=0.5;k++;
-                }else{
-                    j++;k++;
-                }
-            }
-        }
+<script>
+  let arr=[];
+  let i=0;
+  let j=0;
+  let k=1;
+  let turns=document.querySelector("#turns");
+  let choices = ['r1', 'p1', 's1'];
+  function Botchoice(){
+    let botPick = choices[Math.floor(Math.random() *3)];
+    arr.push(botPick);
+  }
+  function fun(){
+    if(arr.length>=2 && arr.length%2===0){
+      if(arr[0]==='r1' && arr[1]==='s1'){
+        i++;
+        k++;
+      }else if(arr[0]===arr[1]){
+        i+=0.5;
+        j+=0.5;
+        k++;
+      }else if(arr[0]==='s1' && arr[1]==='p1'){
+        i++;
+        k++;
+      }else if(arr[0]==='p1' && arr[1]==='r1'){
+        i++;
+        k++;
+      }else{
+        j++;
+        k++;
+      }
+      let a1=document.querySelector("#scores");
+      let lead=document.querySelector("#lead");
+      let Round=document.querySelector("#round");
+      let botchoice=document.querySelector("#botchoice");
+      Round.textContent='Round '+k;
+      if(i>j) lead.textContent='Team A is in lead';
+      else if(i===j) lead.textContent= 'Both are tied up!';
+      else lead.textContent='Team B is in lead';
+      botchoice.textContent='Bot has choose '+arr[1]+' in previous turn';
+      a1.textContent='Team A: '+i+' Team Bot: '+j;
+      console.log(i,j);
+      turns.textContent='Team A turn';
+      arr = [];
+    }
+    if (arr.length===1) turns.textContent='Team B turn';
+  }
 
-        let r=document.querySelector("#r");
-        r.addEventListener("click",()=>{
-            arr.push("r");
-            fun();
-        })
-        let p=document.querySelector("#p");
-        p.addEventListener("click",()=>{
-            arr.push("p");
-            fun();
-        })
-        let s=document.querySelector("#s");
-        s.addEventListener("click",()=>{
-            arr.push("s");
-            fun();
-        })
-    </script>
+  let r1=document.querySelector("#r1");
+  r1.addEventListener("click", () => {
+    arr.push('r1');
+    Botchoice();
+    fun();
+  })
+  let p1=document.querySelector("#p1");
+  p1.addEventListener("click", () => {
+    arr.push('p1');
+    Botchoice();
+    fun();
+  })
+  let s1=document.querySelector("#s1");
+  s1.addEventListener('click', () => {
+    arr.push('s1');
+    Botchoice();
+    fun();
+  })      
+</script>
+
 </body>
 </html>
