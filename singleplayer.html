@@ -40,7 +40,8 @@
     <button title="Scissors" type="button"  id="s1">SCISSORS</button>
     </div>
     <h2 id="lead" style="color: #F5F5F5;">Both are tied up!</h1>
-    <button style="color: #F5F5F5;visibility: hidden;border-radius: 5px;">Restart</button>
+    <p style="color:#F5F5F5;" id="winner"></p>
+    <button style="color: #F5F5F5;visibility: hidden;border-radius: 5px;" id="btn1">Restart</button>
 <script>
   let arr=[];
   let i=0;
@@ -71,6 +72,12 @@
         j++;
         k++;
       }
+      let winner=document.getElementById("winner");
+      if((i>=10)||(j>=10)){
+        btn1.style.visibility="visible";
+        if(i>j) winner.textContent='Team A has won!Team B do you want a rematch?';
+        else winner.textContent='Team Bot has won!Team A do you want a rematch?';
+      }
       let a1=document.querySelector("#scores");
       let lead=document.querySelector("#lead");
       let Round=document.querySelector("#round");
@@ -78,8 +85,10 @@
       Round.textContent='Round '+k;
       if(i>j) lead.textContent='Team A is in lead';
       else if(i===j) lead.textContent= 'Both are tied up!';
-      else lead.textContent='Team B is in lead';
-      botchoice.textContent='Bot has choose '+arr[1]+' in previous turn';
+      else lead.textContent='Team Bot is in lead(You can win)';
+      if(arr[1]==='r1') botchoice.textContent='Bot has choose Rock in previous turn';
+      else if(arr[1]==='s1') botchoice.textContent='Bot has choose Scissors in previous turn';
+      else botchoice.textContent='Bot has choose paper in previous turn';
       a1.textContent='Team A: '+i+' Team Bot: '+j;
       console.log(i,j);
       turns.textContent='Team A turn';
@@ -87,7 +96,6 @@
     }
     if (arr.length===1) turns.textContent='Team B turn';
   }
-
   let r1=document.querySelector("#r1");
   r1.addEventListener("click", () => {
     arr.push('r1');
