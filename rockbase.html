@@ -5,25 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            padding-bottom: 50px;
+            padding-left: 50px;
+            padding-right: 100px;
+            padding-top: 25px;
+        }
         button{
-            color: #010101;
-            background-color: #010201;
-            align-self: start;
-            align-content: center;
-            border: 0px;
-            border-radius: 5px;
-            cursor: alias;
-            box-shadow: #010201;
-            columns: 50%;
+            text-align: center;
+            height: 50px;
+            width: 150px;
+            border: 2px solid transparent;
+            color: #F5F5F5;
+        }
+        a{
+            color: #ffffff;
+            text-decoration: none;
+        }
+        #btn1{
+            background: radial-gradient(circle at center,#FF9966 0%,#FF5E62 100%);
+        }
+        button:hover{
+            border-color: #F5F5F5;
+        }
+        #btn2{
+            background: radial-gradient(circle at center,#dcdcdc 0%,#020617 100%);
         }
     </style>
 </head>
 <body>
     <h1>Rock paper scissors</h1>
     <p>Play with your friends and if you don't have one no worry our bot is there to play with you!</p>
-    <div>
-    <button >1 player</button>
-    <button>2 player</button>
+    <div id="btn_group">
+    <button id="btn1"><a href="singleplayer.html">1 Player</a></button>
+    <button id="btn2"><a href="web.html">2 Player</a></button>
     </div>
 </body>
 </html>

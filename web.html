@@ -11,6 +11,14 @@
        padding-right: 100px;
        padding-bottom: 50px;
      }
+      button{
+        background-color: #6C757D;
+        border: 2px solid transparent;
+        border-radius: 15px;
+        height: 35px;
+        width: 100px;
+        color: #F5F5F5;
+      }
      .cosmic{
       background:radial-gradient(circle at center,#dcdcdc 0%,#020617 100%);
      }
@@ -18,16 +26,15 @@
     <link href="C:\Users\chakk\Downloads\bootstrap-5.3.8-dist\bootstrap-5.3.8-dist\css\bootstrap.min.css" rel="stylesheet">
     </head>
     <body class="cosmic">
-    <button><a href="singleplayer.html">Bot game</a></button>
     <h1 id="title" style="color: aliceblue;">Rock Paper Scissors</h1>
     <p style="color: aliceblue;">The one who gets the 10 points wins (Required two players to play)</p>
     <h2 id="round" style="color:aliceblue;">Round 1</h1>
     <h3 id="a" style="color: aliceblue;">Team A: Team B:</h1>
     <h2 id="turns" style="color: aliceblue;">Team A turn</h1>
-    <div class="btn-group p-5" role="group" aria-label="Basic example">
-    <button title="Rock" type="button" class="btn btn-secondary" id="r1"> ROCK</button>
-    <button title="Paper" type="button" class="btn btn-secondary" id="p1">PAPER</button>
-    <button title="Scissors" type="button" class="btn btn-secondary" id="s1">SCISSORS</button>
+    <div>
+    <button title="Rock" type="button"  id="r1"> ROCK</button>
+    <button title="Paper" type="button" id="p1">PAPER</button>
+    <button title="Scissors" type="button" id="s1">SCISSORS</button>
     </div>
     <h2 id="lead" style="color: aliceblue;">Both are tied up!</h1>
     <p style="color:aliceblue;" id="winner"></p>
