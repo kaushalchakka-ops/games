@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <style>
+      .tictac{
+        background-color: blueviolet;
+        border: 2px solid black;
+        height: 260px;
+        width: 260px;
+        }
+        .btn {
+        width: 80px;
+        height: 80px;
+        border-radius: 5px;
+        vertical-align: top; 
+        }
+
+      .btn:hover{
+        background-color: blue;
+      }
+      .container{
+        margin-left: 600px;
+        margin-top: 200px;
+        align-items: center;
+        justify-content: center;
+      }
+      
+    </style>
+    </head>
+  <body>
+    <h1 style="justify-content: center;">Tic Tac Toe</h1>
+    <p id="ad"></p>
+    <p id="ae"></p>
+    <div class="container">
+      <div class="tictac">
+        <button class="btn" id = "b1"></button>
+        <button class="btn" id = "b2"> </button>
+        <button class="btn" id = "b3"> </button>
+        <button class="btn" id = "b4"> </button>
+        <button class="btn" id = "b5"> </button>
+        <button class="btn" id = "b6"> </button>
+        <button class="btn" id = "b7"> </button>
+        <button class="btn" id = "b8"> </button>
+        <button class="btn" id = "b9"> </button>
+      </div>
+    </div>
+    <a>tic tac toe game</a>
+    <p>onclick button hover </p>
+    <h1 style="color: #00;"><a></a></h1>
+ 
+    <script>
+      let x=[];
+      let o=[];
+        let mat = [
+    ['b1','b2','b3'],
+    ['b4','b5','b6'],
+    ['b7','b8','b9'],
+    ['b1','b4','b7'],
+    ['b2','b5','b8'],
+    ['b3','b6','b9'],
+    ['b1','b5','b9'],
+    ['b3','b5','b7']
+    ];
+    let a = 'X';
+      function fun(){
+    for(let i=0;i<=7;i++){
+        if(x.includes(mat[i][0])&&x.includes(mat[i][1])&&x.includes(mat[i][2])){
+          let a2=document.querySelector("#ad");
+          a2.textContent='A wins';
+        }if(o.includes(mat[i][0])&&o.includes(mat[i][1])&&o.includes(mat[i][2])){
+          let a3=document.querySelector("#ae");
+          a3.textContent='B wins';
+        }
+    }
+}
+    let a1 = document.querySelectorAll(".btn");
+    a1.forEach((tictac) =>{
+    tictac.addEventListener("click",()=> {
+        if(a==='X'){
+          let ab= tictac.getAttribute("id");
+          a='O'
+          x.push(ab);
+          let af=document.getElementById(ab);
+          af.textContent='x';
+          fun();
+        }else{
+          let ac= tictac.getAttribute("id");
+          a='X'
+          o.push(ac);
+          let af=document.getElementById(ac);
+          af.textContent='o';
+          fun();
+        }
+    })
+  })
+
+    </script>
+  </body>
+
+</html>
