@@ -3,27 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Tic Tae Toe game</title>
     <style>
+      body{
+        background-color: #020617;
+        color: azure;
+      }
       .tictac{
-        background-color: blueviolet;
-        border: 2px solid black;
+        /* background-color: #285dfe; */
+        border: 2px solid transparent;
         height: 260px;
         width: 260px;
-        }
+      }
         .btn {
+        background-color: #12182A;
+        color:#ffffff;
         width: 80px;
         height: 80px;
-        border-radius: 5px;
+        margin-bottom: 5px;
+        border-radius: 10px;
         vertical-align: top; 
+        font-size: 20px;
         }
 
       .btn:hover{
-        background-color: blue;
+        background-color: #363E52;
+        border-color: #78E4F4;
       }
       .container{
         margin-left: 600px;
-        margin-top: 200px;
+        margin-top: 100px;
         align-items: center;
         justify-content: center;
       }
@@ -31,9 +40,9 @@
     </style>
     </head>
   <body>
-    <h1 style="justify-content: center;">Tic Tac Toe</h1>
-    <p id="ad"></p>
-    <p id="ae"></p>
+    <h1 style="color: #78E4F4;">Tic Tac Toe</h1>
+    <p id="ad">.</p>
+    <p id="ae">.</p>
     <div class="container">
       <div class="tictac">
         <button class="btn" id = "b1"></button>
@@ -46,11 +55,7 @@
         <button class="btn" id = "b8"> </button>
         <button class="btn" id = "b9"> </button>
       </div>
-    </div>
-    <a>tic tac toe game</a>
-    <p>onclick button hover </p>
-    <h1 style="color: #00;"><a></a></h1>
- 
+    </div> 
     <script>
       let x=[];
       let o=[];
@@ -84,19 +89,22 @@
           a='O'
           x.push(ab);
           let af=document.getElementById(ab);
-          af.textContent='x';
+          af.textContent='X';
+          af.style.color='#78E4F4';
           fun();
         }else{
           let ac= tictac.getAttribute("id");
           a='X'
           o.push(ac);
           let af=document.getElementById(ac);
-          af.textContent='o';
+          af.textContent='O';
+          af.style.color='#F472B6';
           fun();
         }
     })
+    let caer=document.getElementById("#cair");
+    
   })
-
     </script>
   </body>
 
