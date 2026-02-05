@@ -7,19 +7,21 @@
     <style>
       body{
         background-color: #020617;
+        padding-left: 50px;
+        padding-top: 40px;
         color: azure;
       }
       .tictac{
         /* background-color: #285dfe; */
         border: 2px solid transparent;
-        height: 260px;
-        width: 260px;
+        height: 310px;
+        width: 310px;
       }
         .btn {
         background-color: #12182A;
         color:#ffffff;
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         margin-bottom: 5px;
         border-radius: 10px;
         vertical-align: top; 
@@ -30,9 +32,17 @@
         background-color: #363E52;
         border-color: #78E4F4;
       }
+      .tictac.o-turn .btn:not(.clicked):hover{
+        border-color: #F472B6;
+      }
+      .btn.clicked:hover{
+        border-color: transparent;
+        background-color: #12182A;
+        
+      }
       .container{
-        margin-left: 600px;
-        margin-top: 100px;
+        margin-left: 500px;
+        margin-top: 75px;
         align-items: center;
         justify-content: center;
       }
@@ -40,8 +50,8 @@
     </style>
     </head>
   <body>
-    <h1 style="color: #78E4F4;">Tic Tac Toe</h1>
-    <p id="ad">.</p>
+    <h1 style="color: #B0B1B6;">Tic Tac Toe</h1>
+    <h2 id="turns" style="color: #78E4F4;">A turn</h2>
     <p id="ae">.</p>
     <div class="container">
       <div class="tictac">
@@ -73,7 +83,7 @@
       function fun(){
     for(let i=0;i<=7;i++){
         if(x.includes(mat[i][0])&&x.includes(mat[i][1])&&x.includes(mat[i][2])){
-          let a2=document.querySelector("#ad");
+          let a2=document.querySelector("#ae");
           a2.textContent='A wins';
         }if(o.includes(mat[i][0])&&o.includes(mat[i][1])&&o.includes(mat[i][2])){
           let a3=document.querySelector("#ae");
@@ -83,27 +93,39 @@
 }
     let a1 = document.querySelectorAll(".btn");
     a1.forEach((tictac) =>{
-    tictac.addEventListener("click",()=> {
+    tictac.addEventListener("click", () => {
         if(a==='X'){
           let ab= tictac.getAttribute("id");
-          a='O'
-          x.push(ab);
-          let af=document.getElementById(ab);
-          af.textContent='X';
-          af.style.color='#78E4F4';
-          fun();
+          if(x.includes(ab)==0&&o.includes(ab)==0){
+            a='O';
+            x.push(ab);
+            let af=document.getElementById(ab);
+            af.textContent='X';
+            af.style.color='#78E4F4';
+            let turns=document.getElementById("turns");
+            turns.textContent='B turn';
+            turns.style.color='#F472B6';
+            document.querySelector('.tictac').classList.add('o-turn');
+            tictac.classList.add('clicked');
+            fun();
+          }
         }else{
           let ac= tictac.getAttribute("id");
-          a='X'
-          o.push(ac);
-          let af=document.getElementById(ac);
-          af.textContent='O';
-          af.style.color='#F472B6';
-          fun();
+          if(o.includes(ac)==0&&x.includes(ac)==0){
+            a='X';
+            o.push(ac);
+            let af=document.getElementById(ac);
+            af.textContent='O';
+            af.style.color='#F472B6';
+            let turns=document.getElementById("turns");
+            turns.textContent='A turn';
+            turns.style.color='#78E4F4';
+            document.querySelector('.tictac').classList.remove('o-turn');
+            tictac.classList.add('clicked');
+            fun();
+          }
         }
     })
-    let caer=document.getElementById("#cair");
-    
   })
     </script>
   </body>
