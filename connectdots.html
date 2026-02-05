@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Dots</title>
+    <style>
+        .row{
+            display:flex;
+            justify-content: space-around;
+            margin-bottom:40px;
+            width:200px;
+        }
+        .dot{
+            width: 12px;
+            height: 12px;
+            background-color: #333;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-board">
+  <div class="row">
+    <div class="dot"></div><div class="line horizontal" data-line="h-0-0"></div>
+    <div class="dot"></div><div class="line horizontal" data-line="h-0-1"></div>
+    <div class="dot"></div><div class="line horizontal" data-line="h-0-2"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="row">
+    <div class="line vertical" data-line="v-0-0"></div><div class="box-center"></div>
+    <div class="line vertical" data-line="v-0-1"></div><div class="box-center"></div>
+    <div class="line vertical" data-line="v-0-2"></div><div class="box-center"></div>
+  </div>
+
+  <div class="row">
+    <div class="dot"></div><div class="line horizontal" data-line="h-1-0"></div>
+    <div class="dot"></div><div class="line horizontal" data-line="h-1-1"></div>
+    <div class="dot"></div><div class="line horizontal" data-line="h-1-2"></div>
+  </div>
+
+    <div class="row">
+    <div class="line vertical" data-line="v-1-0"></div><div class="box-center"></div>
+    <div class="line vertical" data-line="v-1-1"></div><div class="box-center"></div>
+    <div class="line vertical" data-line="v-1-2"></div><div class="box-center"></div>
+    </div>
+    
+    <div class="row">
+    <div class="dot"></div><div class="line horizontal" data-line="h-2-0"></div>
+    <div class="dot"></div><div class="line horizontal" data-line="h-2-1"></div>
+    <div class="dot"></div><div class="line horizontal" data-line="h-2-2"></div>
+    </div>
+
+    <div class="row">
+    <div class="line vertical" data-line="v-2-0"></div><div class="box-center"></div>
+    <div class="line vertical" data-line="v-2-1"></div><div class="box-center"></div>
+    <div class="line vertical" data-line="v-2-2"></div><div class="box-center"></div>
+    </div>
+
+    <div class="row">
+    <div class="dot"></div><div class="line horizontal" data-line="h-3-0"></div>
+    <div class="dot"></div><div class="line horizontal" data-line="h-3-1"></div>
+    <div class="dot"></div><div class="line horizontal" data-line="h-3-2"></div>
+    </div>
+    <div class="row">
+    <div class="line vertical" data-line="v-3-0"></div><div class="box-center"></div>
+    <div class="line vertical" data-line="v-3-1"></div><div class="box-center"></div>
+    <div class="line vertical" data-line="v-3-2"></div><div class="box-center"></div>
+    </div>
+    
+    <div class="row">
+    <div class="dot"></div><div class="line horizontal" data-line="h-4-0"></div>
+    <div class="dot"></div><div class="line horizontal" data-line="h-4-1"></div>
+    <div class="dot"></div><div class="line horizontal" data-line="h-4-2"></div>
+    </div>
+
+    
+
+</div>
+
+</body>
+</html>

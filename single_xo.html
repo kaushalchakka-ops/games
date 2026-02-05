@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tic Tac Toe game</title>
+    <style>
+      body{
+        background-color: #020617;
+        padding-left: 50px;
+        padding-top: 40px;
+        color: azure;
+      }
+      .tictac{
+        /* background-color: #285dfe; */
+        border: 2px solid transparent;
+        height: 310px;
+        width: 310px;
+      }
+        .btn {
+        background-color: #12182A;
+        color:#ffffff;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 5px;
+        border: 2px solid #2A3244;
+        border-radius: 10px;
+        vertical-align: top; 
+        font-size: 20px;
+        }
+
+      .btn:hover{
+        background-color: #363E52;
+        border-color: #78E4F4;
+      }
+      .tictac.o-turn .btn:not(.clicked):hover{
+        border-color: #F472B6;
+      }
+      .btn.clicked:hover{
+        border-color: transparent;
+        background-color: #12182A;
+        
+      }
+      .container{
+        margin-left: 500px;
+        margin-top: 75px;
+        align-items: center;
+        justify-content: center;
+      }
+      
+    </style>
+    </head>
+  <body>
+    <h1 style="color: #B0B1B6;">Tic Tac Toe</h1>
+    <p style="color: #B0B1B6;">Two Player needed to play!</p>
+    <h2 id="turns" style="color: #78E4F4;">A turn</h2>
+    <div class="container">
+      <div class="tictac">
+        <button class="btn" id = "b1"></button>
+        <button class="btn" id = "b2"> </button>
+        <button class="btn" id = "b3"> </button>
+        <button class="btn" id = "b4"> </button>
+        <button class="btn" id = "b5"> </button>
+        <button class="btn" id = "b6"> </button>
+        <button class="btn" id = "b7"> </button>
+        <button class="btn" id = "b8"> </button>
+        <button class="btn" id = "b9"> </button>
+      </div>
+    </div>
+    <h2 id="ae" style="padding-left: 41%;"></h2>
+    <button style="border-radius: 5px;margin-left: 41%;border: transparent;color:white;background-color: #78E4F4;height: 31px;width:50px;visibility: hidden;" id="ret"onclick="location.reload()">Retry</button>
+    <!-- <script>
+    let x = [];
+    let o = [];
+    let won = 0;
+    let turn = 'X';
+    let mat = [
+        ['b1', 'b2', 'b3'],
+        ['b4', 'b5', 'b6'],
+        ['b7', 'b8', 'b9'], 
+        ['b1', 'b4', 'b7'], 
+        ['b2', 'b5', 'b8'],
+        ['b3', 'b6', 'b9'], 
+        ['b1', 'b5', 'b9'],
+        ['b3', 'b5', 'b7']
+    ];
+
+    function checkWinner() {
+        let a2 = document.querySelector("#ae");
+        let ret = document.getElementById("ret");
+
+        for (let i = 0; i < mat.length; i++) {
+            if (mat[i].every(id => x.includes(id))) {
+                a2.textContent = 'A won';
+                a2.style.color = '#78E4F4';
+                ret.style.visibility = 'visible';
+                won = 1;
+                return true;
+            }
+            if (mat[i].every(id => o.includes(id))) {
+                a2.textContent = 'Bot won';
+                a2.style.color = '#F472B6';
+                ret.style.visibility = 'visible';
+                won = 1;
+                return true;
+            }
+        }
+        if (x.length + o.length === 9 && won === 0) {
+            a2.textContent = 'Match Draw';
+            a2.style.color = '#B0B1B6';
+            ret.style.visibility = 'visible';
+            won = 1;
+            return true;
+        }
+        return false;
+    }
+    function botMove() {
+        if (won !== 0) return;
+        let allIds = ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'b9'];
+        let available = allIds.filter(id => !x.includes(id) && !o.includes(id));
+
+        if (available.length > 0) {
+            let choice = available[Math.floor(Math.random() * available.length)];
+            let targetBtn = document.getElementById(choice);
+            
+            o.push(choice);
+            targetBtn.textContent = 'O';
+            targetBtn.style.color = '#F472B6';
+            targetBtn.style.backgroundColor = '#261D38';
+            targetBtn.classList.add('clicked');
+            let turnsDisplay = document.getElementById("turns");
+            turnsDisplay.textContent = 'A turn';
+            turnsDisplay.style.color = '#78E4F4';
+            document.querySelector('.tictac').classList.remove('o-turn');
+            turn = 'X';
+            checkWinner();
+        }
+    }
+    // let app=document.getElementById("abc");
+    let tictac=
+    let buttons = document.querySelectorAll(".btn");
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            let id = btn.getAttribute("id");
+            if (won === 0 && turn === 'X' && !x.includes(id) && !o.includes(id)) {
+                x.push(id);
+                btn.textContent = 'X';
+                btn.style.color = '#78E4F4';
+                btn.style.backgroundColor = '#10293E';
+                btn.classList.add('clicked');
+                let turnsDisplay = document.getElementById("turns");
+                turnsDisplay.textContent = 'B turn';
+                turnsDisplay.style.color = '#F472B6';
+                document.querySelector('.tictac').classList.add('o-turn');
+                if (!checkWinner()) {
+                    turn = 'O';
+                    setTimeout(botMove, 600);
+                }
+            }
+        });
+    });
+    </script> -->
+  </body>
+
+</html>
