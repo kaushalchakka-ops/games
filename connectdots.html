@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect Dots</title>
+    <title>Bingo</title>
     <style>
-        /* .row{
-            display:flex;
-            justify-content: space-around;
-            margin-bottom:40px;
-            width:200px;
+        body{
+          padding-left: 30px;
+          padding-top: 0px;
+          padding-bottom: 50px;
+          background-color: #FFF8E7;
         }
-        .dot{
-            width: 12px;
-            height: 12px;
-            background-color: #333;
-            border-radius: 50%;
-        } */
         .tictac{
-        background-color:#FFFACD;
+        background-color: #FFFACD;
         border: 2.5px solid black;
         padding: 10px;
         border-radius: 10px;
+        margin-left: -60%;
+        /* border: 2px solid transparent; */
+        height: 393px;
+        width: 393px;
+      }
+      .tictac1{
+        background-color: #BFD9EF ;
+        border: 2.5px solid black;
+        padding: 10px;
+        border-radius: 10px;
+        margin-left: 40%;
         /* border: 2px solid transparent; */
         height: 393px;
         width: 393px;
@@ -37,65 +42,153 @@
         vertical-align: top; 
         font-size: 20px;
         }
-
+        .btn1 {
+        background-color: #FFFACD;
+        color:#333333;
+        width: 75px;
+        height: 75px;
+        margin-bottom: 5px;
+        border: 2px solid #2A3244;
+        border-radius: 10px;
+        vertical-align: top; 
+        font-size: 20px;
+        }
       .btn:hover{
-        background-color: #BFD9E5;
+        background-color:#BFD9E5;
         border-color: #78E4F4;
       }
-      .tictac.o-turn .btn:not(.clicked):hover{
-        border-color: #F472B6;
+      .btn1:hover{
+        background-color:#FFC0CB;
+        border-color: #d39ba4;
       }
-      .btn.clicked:hover{
+      .btn.clicked{
+        background-color: #90EE90;
+        border-color: #2A3244;
+      }
+      .btn1.clicked{
+        background-color: #FFC0CB;
+        border-color: #2A3244;
+      }
+      /* .btn.clicked:hover{
         border-color: transparent;
-        background-color: #12182A;        
+        background-color: #90EE90;        
+      } */
+      .boards{
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        justify-content: center;
+        margin-top: 75px;
       }
       .container{
-        margin-left: 500px;
-        margin-top: 75px;
-        align-items: center;
-        justify-content: center;
+        margin-left: 0;
+      }
+      .start{
+        background-color: #90EE90;
+        color: #333333;
+        border: 2PX solid GREY;
+        height:50px;
+        width:100px;
+        border-radius: 5px;
+      }
+      .random1{
+        background-color: #90EE90;
+        color: #333333;
+        border: 2PX solid GREY;
+        height:50px;
+        width:100px;
+        border-radius: 5px; 
+        margin-left: 38%;
+        visibility: hidden;
+      }
+      h3{
+        margin-left: 47%;
       }
     </style>
 </head>
 <body>
-  <div class="bingo-container"></div>
-   <div>Single-player Bingo</div>
-   <button onclick="allocate()">start</button>
-   <button onclick="turns()">Random number</button>
-   <p id="abc"></p>
-       <div class="container">
-      <div class="tictac">
-        <button class="btn" id = "b1"></button>
-        <button class="btn" id = "b6"> </button>
-        <button class="btn" id = "b11"></button>
-        <button class="btn" id = "b16"></button>
-        <button class="btn" id = "b21"></button>
-        <button class="btn" id = "b2"></button>
-        <button class="btn" id = "b7"></button>
-        <button class="btn" id = "b12"></button>
-        <button class="btn" id = "b17"></button>
-        <button class="btn" id = "b22"></button>
-        <button class="btn" id = "b3"></button>
-        <button class="btn" id = "b8"></button>
-        <button class="btn" id = "b13"></button>
-        <button class="btn" id = "b18"></button>
-        <button class="btn" id = "b23"></button>
-        <button class="btn" id = "b4"></button>
-        <button class="btn" id = "b9"></button>
-        <button class="btn" id = "b14"></button>
-        <button class="btn" id = "b19"></button>
-        <button class="btn" id = "b24"></button>
-        <button class="btn" id = "b5"></button>
-        <button class="btn" id = "b10"></button>
-        <button class="btn" id = "b15"></button>
-        <button class="btn" id = "b20"></button>
-        <button class="btn" id = "b25"></button>
+   <h1>Bingo</h1>
+   <h4>The first who completes the grid wins the game(Start game by pressing the random and clicking on your tile)</h4>
+   <button id="end" onclick="allocate()" class="start">START</button>
+   <button id="random1" onclick="turns()" class="random1">Random number</button>
+   <h3 id="abc" class=""></h3>
+   <h3 style="margin-left:10%">Team A</h3>
+   <h3 style="margin-left: 73%;margin-bottom: -0%;">Team B</h3>
+   <p id="abcd"></p> 
+   <div class="boards">
+      <div class="container">
+        <div class="tictac">
+          <button class="btn" id = "b1"></button>
+          <button class="btn" id = "b6"> </button>
+          <button class="btn" id = "b11"></button>
+          <button class="btn" id = "b16"></button>
+          <button class="btn" id = "b21"></button>
+          <button class="btn" id = "b2"></button>
+          <button class="btn" id = "b7"></button>
+          <button class="btn" id = "b12"></button>
+          <button class="btn" id = "b17"></button>
+          <button class="btn" id = "b22"></button>
+          <button class="btn" id = "b3"></button>
+          <button class="btn" id = "b8"></button>
+          <button class="btn" id = "b13"></button>
+          <button class="btn" id = "b18"></button>
+          <button class="btn" id = "b23"></button>
+          <button class="btn" id = "b4"></button>
+          <button class="btn" id = "b9"></button>
+          <button class="btn" id = "b14"></button>
+          <button class="btn" id = "b19"></button>
+          <button class="btn" id = "b24"></button>
+          <button class="btn" id = "b5"></button>
+          <button class="btn" id = "b10"></button>
+          <button class="btn" id = "b15"></button>
+          <button class="btn" id = "b20"></button>
+          <button class="btn" id = "b25"></button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="tictac1">
+          <button class="btn1" id = "a1"></button>
+          <button class="btn1" id = "a6"> </button>
+          <button class="btn1" id = "a11"></button>
+          <button class="btn1" id = "a16"></button>
+          <button class="btn1" id = "a21"></button>
+          <button class="btn1" id = "a2"></button>
+          <button class="btn1" id = "a7"></button>
+          <button class="btn1" id = "a12"></button>
+          <button class="btn1" id = "a17"></button>
+          <button class="btn1" id = "a22"></button>
+          <button class="btn1" id = "a3"></button>
+          <button class="btn1" id = "a8"></button>
+          <button class="btn1" id = "a13"></button>
+          <button class="btn1" id = "a18"></button>
+          <button class="btn1" id = "a23"></button>
+          <button class="btn1" id = "a4"></button>
+          <button class="btn1" id = "a9"></button>
+          <button class="btn1" id = "a14"></button>
+          <button class="btn1" id = "a19"></button>
+          <button class="btn1" id = "a24"></button>
+          <button class="btn1" id = "a5"></button>
+          <button class="btn1" id = "a10"></button>
+          <button class="btn1" id = "a15"></button>
+          <button class="btn1" id = "a20"></button>
+          <button class="btn1" id = "a25"></button>
+        </div>
       </div>
     </div>
-</div>
+<!-- <a href="rockbase.html">rockpap</a> -->
+
 <script>
-  let num=[];
+  let num=[],num1=[];
   let bot=[0];
+  let solu=[],solu1=[];
+  let score1=0,score2=0;
+  let abcd=document.getElementById("abcd");
+  if(score1===25){
+    abcd.textContent='A has won!';
+  }else if(score2===25){
+    abcd.textContent='B has won'
+  }
+
   // let s,a=[1],h=[35,100];
   let min=0;
   let max=15;
@@ -119,30 +212,82 @@
     }
     return random(x, y);
   }
+  function random2(x,y){
+    curr=Math.floor(Math.random() * (y - x + 1))+x;
+    if(!num1.includes(curr)){
+      num1.push(curr);
+      return curr;
+    }
+    return random2(x,y);
+  }
   function allocate(){
     for(let i=1;i<=5;i++){
       let s='b'+i;
       let a=document.getElementById(s);
+      let s1='a'+i;
+      let b=document.getElementById(s1);
       a.textContent=random(1,15);
+      b.textContent=random2(1,15);
     }for(let i=6;i<=10;i++){
       let s='b'+i;
       let a=document.getElementById(s);
+      let s1='a'+i;
+      let b=document.getElementById(s1);
       a.textContent=random(16,30);
+      b.textContent=random2(16,30);
     }for(let i=11;i<=15;i++){
       let s='b'+i;
       let a=document.getElementById(s);
+      let s1='a'+i;
+      let b=document.getElementById(s1);
       a.textContent=random(31,45);
+      b.textContent=random2(31,45);
     }for(let i=16;i<=20;i++){
       let s='b'+i;
       let a=document.getElementById(s);
+      let s1='a'+i;
+      let b=document.getElementById(s1);
       a.textContent=random(46,60);
+      b.textContent=random2(46,60);
     }for(let i=21;i<=25;i++){
       let s='b'+i;
       let a=document.getElementById(s);
+      let s1='a'+i;
+      let b=document.getElementById(s1);
+      b.textContent=random2(61,76);
       a.textContent=random(61,76);
     }
-
+    let end=document.getElementById("end");
+    end.style.visibility="hidden";
+    let random1=document.getElementById("random1");
+    random1.style.visibility="visible";
   }
+  document.querySelectorAll(".btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      let value = Number(btn.textContent.trim());
+      if (Number.isNaN(value)) {
+        return;
+      }
+      if (!solu.includes(value) && bot.includes(value)) {
+        solu.push(value);
+        score1++;
+        btn.classList.toggle("clicked");
+      }
+    });
+  });
+  document.querySelectorAll(".btn1").forEach((btn1) => {
+    btn1.addEventListener("click", () => {
+      let value = Number(btn1.textContent.trim());
+      if (Number.isNaN(value)) {
+        return;
+      }
+      if (!solu1.includes(value) && bot.includes(value)) {
+        solu1.push(value);
+        score2++;
+        btn1.classList.toggle("clicked");
+      }
+    });
+  });
 </script>
 </body>
 </html>
