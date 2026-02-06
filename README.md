@@ -1,5 +1,5 @@
 Updates:
-New modes have been added creted a base file for the two modese
+New modes have been added creted a base file for the two modese and also new games are added
 I created my first game in vs code probably some normal game using html this was my timeline of my file explorer as i hadn't recorded the hackatime while building 
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/141462fd-3510-44a1-9c8c-843ceead6a0a" />
 (the file named web has the game in it)
