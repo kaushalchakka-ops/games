@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Dots</title>
     <style>
-        .row{
+        /* .row{
             display:flex;
             justify-content: space-around;
             margin-bottom:40px;
@@ -16,68 +16,70 @@
             height: 12px;
             background-color: #333;
             border-radius: 50%;
+        } */
+        .tictac{
+        /* background-color: #285dfe; */
+        border: 2px solid transparent;
+        height: 310px;
+        width: 310px;
+      }
+        .btn {
+        background-color: #12182A;
+        color:#ffffff;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 5px;
+        border: 2px solid #2A3244;
+        border-radius: 10px;
+        vertical-align: top; 
+        font-size: 20px;
         }
+
+      .btn:hover{
+        background-color: #363E52;
+        border-color: #78E4F4;
+      }
+      .tictac.o-turn .btn:not(.clicked):hover{
+        border-color: #F472B6;
+      }
+      .btn.clicked:hover{
+        border-color: transparent;
+        background-color: #12182A;
+        
+      }
+      .container{
+        margin-left: 500px;
+        margin-top: 75px;
+        align-items: center;
+        justify-content: center;
+      }
     </style>
 </head>
 <body>
-    <div class="game-board">
-  <div class="row">
-    <div class="dot"></div><div class="line horizontal" data-line="h-0-0"></div>
-    <div class="dot"></div><div class="line horizontal" data-line="h-0-1"></div>
-    <div class="dot"></div><div class="line horizontal" data-line="h-0-2"></div>
-    <div class="dot"></div>
-  </div>
-
-  <div class="row">
-    <div class="line vertical" data-line="v-0-0"></div><div class="box-center"></div>
-    <div class="line vertical" data-line="v-0-1"></div><div class="box-center"></div>
-    <div class="line vertical" data-line="v-0-2"></div><div class="box-center"></div>
-  </div>
-
-  <div class="row">
-    <div class="dot"></div><div class="line horizontal" data-line="h-1-0"></div>
-    <div class="dot"></div><div class="line horizontal" data-line="h-1-1"></div>
-    <div class="dot"></div><div class="line horizontal" data-line="h-1-2"></div>
-  </div>
-
-    <div class="row">
-    <div class="line vertical" data-line="v-1-0"></div><div class="box-center"></div>
-    <div class="line vertical" data-line="v-1-1"></div><div class="box-center"></div>
-    <div class="line vertical" data-line="v-1-2"></div><div class="box-center"></div>
+  <div class="bingo-container"></div>
+   <div>Single-player Bingo</div>
+   <button onclick="random()">start</button>
+       <div class="container">
+      <div class="tictac">
+        <button class="btn" id = "b1"></button>
+        <button class="btn" id = "b2"> </button>
+        <button class="btn" id = "b3"> </button>
+        <button class="btn" id = "b4"> </button>
+        <button class="btn" id = "b5"> </button>
+        <button class="btn" id = "b6"> </button>
+        <button class="btn" id = "b7"> </button>
+        <button class="btn" id = "b8"> </button>
+        <button class="btn" id = "b9"> </button>
+      </div>
     </div>
-    
-    <div class="row">
-    <div class="dot"></div><div class="line horizontal" data-line="h-2-0"></div>
-    <div class="dot"></div><div class="line horizontal" data-line="h-2-1"></div>
-    <div class="dot"></div><div class="line horizontal" data-line="h-2-2"></div>
-    </div>
-
-    <div class="row">
-    <div class="line vertical" data-line="v-2-0"></div><div class="box-center"></div>
-    <div class="line vertical" data-line="v-2-1"></div><div class="box-center"></div>
-    <div class="line vertical" data-line="v-2-2"></div><div class="box-center"></div>
-    </div>
-
-    <div class="row">
-    <div class="dot"></div><div class="line horizontal" data-line="h-3-0"></div>
-    <div class="dot"></div><div class="line horizontal" data-line="h-3-1"></div>
-    <div class="dot"></div><div class="line horizontal" data-line="h-3-2"></div>
-    </div>
-    <div class="row">
-    <div class="line vertical" data-line="v-3-0"></div><div class="box-center"></div>
-    <div class="line vertical" data-line="v-3-1"></div><div class="box-center"></div>
-    <div class="line vertical" data-line="v-3-2"></div><div class="box-center"></div>
-    </div>
-    
-    <div class="row">
-    <div class="dot"></div><div class="line horizontal" data-line="h-4-0"></div>
-    <div class="dot"></div><div class="line horizontal" data-line="h-4-1"></div>
-    <div class="dot"></div><div class="line horizontal" data-line="h-4-2"></div>
-    </div>
-
-    
-
 </div>
+<script>
+  let num=[];
+  let b1=document.getElementById("b1");
+  function random(){
 
+    b1.textContent=
+  }
+</script>
 </body>
 </html>
