@@ -20,14 +20,14 @@
         .tictac{
         /* background-color: #285dfe; */
         border: 2px solid transparent;
-        height: 310px;
-        width: 310px;
+        height: 400px;
+        width: 400px;
       }
         .btn {
         background-color: #12182A;
         color:#ffffff;
-        width: 100px;
-        height: 100px;
+        width: 75px;
+        height: 75px;
         margin-bottom: 5px;
         border: 2px solid #2A3244;
         border-radius: 10px;
@@ -44,8 +44,7 @@
       }
       .btn.clicked:hover{
         border-color: transparent;
-        background-color: #12182A;
-        
+        background-color: #12182A;        
       }
       .container{
         margin-left: 500px;
@@ -58,27 +57,61 @@
 <body>
   <div class="bingo-container"></div>
    <div>Single-player Bingo</div>
-   <button onclick="random()">start</button>
+   <button onclick="allocate()">start</button>
        <div class="container">
       <div class="tictac">
         <button class="btn" id = "b1"></button>
-        <button class="btn" id = "b2"> </button>
-        <button class="btn" id = "b3"> </button>
-        <button class="btn" id = "b4"> </button>
-        <button class="btn" id = "b5"> </button>
         <button class="btn" id = "b6"> </button>
+        <button class="btn" id = "b11"> </button>
+        <button class="btn" id = "b16"> </button>
+        <button class="btn" id = "b21"> </button>
+        <button class="btn" id = "b2"> </button>
         <button class="btn" id = "b7"> </button>
-        <button class="btn" id = "b8"> </button>
-        <button class="btn" id = "b9"> </button>
+        <button class="btn" id = "b12"> </button>
+        <button class="btn" id = "b17"> </button>
+        <button class="btn" id = "b3"></button>
+        <button class="btn" id=""></button>
+        
       </div>
     </div>
 </div>
 <script>
   let num=[];
+  let min=0;
+  let max=15;
+  let curr;
   let b1=document.getElementById("b1");
-  function random(){
+  function random(x, y){
+    curr = Math.floor(Math.random() * (y - x + 1)) + x;
+    if (!num.includes(curr)){
+      num.push(curr);
+      return curr;
+    }
+    return random(x, y);
+  }
+  function allocate(){
+    for(let i=1;i<=5;i++){
+      let s='b'+i;
+      let a=document.getElementById(s);
+      a.textContent=random(1,15);
+    }for(let i=6;i<=10;i++){
+      let s='b'+i;
+      let a=document.getElementById(s);
+      a.textContent=random(16,30);
+    }for(let i=11;i<=15;i++){
+      let s=b+'i';
+      let a=document.getElementById(s);
+      a.textContent=random(31,45);
+    }for(let i=16;i<=20;i++){
+      let s='b'+i;
+      let a=document.getElementById(s);
+      a.textContent=random(46,60);
+    }for(let i=21;i<25;i++){
+      let s='b'+i;
+      let a=document.getElementById(s);
+      a.textContent=random(61,76);
+    }
 
-    b1.textContent=
   }
 </script>
 </body>
