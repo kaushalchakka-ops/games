@@ -9,10 +9,10 @@
           padding-left: 30px;
           padding-top: 0px;
           padding-bottom: 50px;
-          background-color: #FFF8E7;
+          background-color: #c61919;
         }
         .tictac{
-        background-color: #FFFACD;
+        background-color: #e5d010;
         border: 2.5px solid black;
         padding: 10px;
         border-radius: 10px;
@@ -22,7 +22,7 @@
         width: 393px;
       }
       .tictac1{
-        background-color: #BFD9EF ;
+        background-color: #1589d2;
         border: 2.5px solid black;
         padding: 10px;
         border-radius: 10px;
@@ -32,7 +32,7 @@
         width: 393px;
       }
         .btn {
-        background-color: #AEC6CF;
+        background-color: #1589d2;
         color:#333333;
         width: 75px;
         height: 75px;
@@ -43,7 +43,7 @@
         font-size: 20px;
         }
         .btn1 {
-        background-color: #FFFACD;
+        background-color: #e5d010;
         color:#333333;
         width: 75px;
         height: 75px;
@@ -58,7 +58,7 @@
         border-color: #78E4F4;
       }
       .btn1:hover{
-        background-color:#FFC0CB;
+        background-color: #90EE90;
         border-color: #d39ba4;
       }
       .btn.clicked{
@@ -66,7 +66,7 @@
         border-color: #2A3244;
       }
       .btn1.clicked{
-        background-color: #FFC0CB;
+        background-color: #90EE90;
         border-color: #2A3244;
       }
       /* .btn.clicked:hover{
@@ -114,7 +114,7 @@
    <h3 id="abc" class=""></h3>
    <h3 style="margin-left:10%">Team A</h3>
    <h3 style="margin-left: 73%;margin-bottom: -0%;">Team B</h3>
-   <p id="abcd"></p> 
+   <p id="abcd"></p>
    <div class="boards">
       <div class="container">
         <div class="tictac">
@@ -175,7 +175,7 @@
         </div>
       </div>
     </div>
-<!-- <a href="rockbase.html">rockpap</a> -->
+
 
 <script>
   let num=[],num1=[];
@@ -188,22 +188,38 @@
   }else if(score2===25){
     abcd.textContent='B has won'
   }
-
-  // let s,a=[1],h=[35,100];
   let min=0;
   let max=15;
   let curr;
-  let b1=document.getElementById("b1");
-  function turns(){
-    let botr=Math.floor(Math.random()*75);
-    if(!bot.includes(botr)){
-      bot.push(botr);
-      let abc=document.getElementById("abc");
-      abc.textContent=botr;
+
+
+  function turns() {
+    if (bot.length > 75) {
+      console.log("No numbers left!");
       return;
     }
-    return turns();
+    let botr;
+    do {
+      botr = Math.floor(Math.random() * 75);
+    } while (bot.includes(botr));
+
+    bot.push(botr);
+    document.getElementById("abc").textContent = botr;
   }
+  
+  // let b1=document.getElementById("b1");
+  // function turns(){
+  //   let botr=Math.floor(Math.random()*75);
+  //   if(!bot.includes(botr)){
+  //     bot.push(botr);
+  //     let abc=document.getElementById("abc");
+  //     abc.textContent=botr;
+  //     return;
+  //   }
+  //   return turns();
+  // }
+
+
   function random(x, y){
     curr = Math.floor(Math.random() * (y - x + 1)) + x;
     if (!num.includes(curr)){

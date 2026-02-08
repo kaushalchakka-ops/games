@@ -6,7 +6,7 @@
     <title>Tic Tae Toe game</title>
     <style>
       body{
-        background-color: #020617;
+        /* background-color: #020617; */
         padding-left: 50px;
         padding-top: 40px;
         color: azure;
@@ -117,12 +117,12 @@
             let af=document.getElementById(ab);
             af.textContent='X';
             af.style.color='#78E4F4';
-            af.style.backgroundColor='#10293E';
+            // af.style.backgroundColor='#10293E';
             let turns=document.getElementById("turns");
             turns.textContent='B turn';
             turns.style.color='#F472B6';
-            document.querySelector('.tictac').classList.add('o-turn');
-            tictac.classList.add('clicked');
+            // document.querySelector('.tictac').classList.add('o-turn');
+            // tictac.classList.add('clicked');
             fun();
           }
         }else{
@@ -133,12 +133,12 @@
             let af=document.getElementById(ac);
             af.textContent='O';
             af.style.color='#F472B6';
-            af.style.backgroundColor='#261D38';
+            // af.style.backgroundColor='#261D38';
             let turns=document.getElementById("turns");
             turns.textContent='A turn';
             turns.style.color='#78E4F4';
-            document.querySelector('.tictac').classList.remove('o-turn');
-            tictac.classList.add('clicked');
+            // document.querySelector('.tictac').classList.remove('o-turn');
+            // tictac.classList.add('clicked');
             fun();
           }
         }
@@ -146,5 +146,4 @@
   })
     </script>
   </body>
-
 </html>
