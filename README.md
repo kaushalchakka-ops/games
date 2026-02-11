@@ -6,4 +6,4 @@ I created my first game in vs code probably some normal game using html this was
 this is the game where i had left it 
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e82a81f7-843e-4294-b0ee-dd114b637070" />
 there are many problems in it ,now i have to fix it and add images to it and change the ui
-The new chanhges are done in new fork named master
+The new chanhges are done in new branch named _master_
