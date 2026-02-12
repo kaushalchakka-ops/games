@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,10 +6,11 @@
     <title>Tic Tac Toe game</title>
     <style>
       body{
-        background-color: #020617;
+        background-color: white;
         padding-left: 50px;
         padding-top: 40px;
-        color: azure;
+        /*color: white;*/
+
       }
       .tictac{
         /* background-color: #285dfe; */
@@ -51,8 +52,10 @@
     </style>
     </head>
   <body>
-    <h1 style="color: #B0B1B6;">Tic Tac Toe</h1>
-    <p style="color: #B0B1B6;">Two Player needed to play!</p>
+    <h1 style="color: black;">Tic Tac Toe</h1>
+    <p style="color: black;">One Player needed to play!(Bot will be played with you)</p>
+    <p style="color: black;">Bots difficulty easy</p>
+    <a
     <h2 id="turns" style="color: #78E4F4;">A turn</h2>
     <div class="container">
       <div class="tictac">
@@ -69,7 +72,7 @@
     </div>
     <h2 id="ae" style="padding-left: 41%;"></h2>
     <button style="border-radius: 5px;margin-left: 41%;border: transparent;color:white;background-color: #78E4F4;height: 31px;width:50px;visibility: hidden;" id="ret"onclick="location.reload()">Retry</button>
-    <!-- <script>
+     <script>
     let x = [];
     let o = [];
     let won = 0;
@@ -84,6 +87,7 @@
         ['b1', 'b5', 'b9'],
         ['b3', 'b5', 'b7']
     ];
+    let abc=document.getElementById("abc");
 
     function checkWinner() {
         let a2 = document.querySelector("#ae");
@@ -137,7 +141,9 @@
         }
     }
     // let app=document.getElementById("abc");
-    let tictac=
+    if(a>2){
+
+    }
     let buttons = document.querySelectorAll(".btn");
     buttons.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -159,7 +165,6 @@
             }
         });
     });
-    </script> -->
+    </script> 
   </body>
-
-</html>
+</html>  -->
